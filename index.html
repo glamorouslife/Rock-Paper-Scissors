@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //function that takes my answer 
+        function userAnswer(){
+            //getting user input via prompt
+            return prompt ("choose rock,scissor or paper!")
+        }
+        //assigning the first user choice 
+        let userchoice1=userAnswer()
+        console.log(userAnswer())
+        //function that takes computer answer
+        function computerAnswer(){
+            //list of options 
+            let options=["rock", "scissor", "paper"];
+            //finding the random index for choosing one of the elements 
+            let index= Math.floor(Math.random() * options.length);
+            //randomly choose one of the elements by random index
+            return options[index];
+        }
+        //assigning the first computer choice 
+        let computerchoice1=computerAnswer()
+        console.log(computerchoice1)
+
+        //function that tells who is the winner 
+        function whoIsWinner(userAnswer, computerAnswer){
+            if (userAnswer===computerAnswer){
+                return "Tie Tie";
+            } else if (userAnswer==="rock" && computerAnswer==="scissor"){
+                return "you won";
+            } else if (userAnswer==="paper" && computerAnswer==="rock"){
+                return "you won";
+            } else if (userAnswer==="scissor" && computerAnswer==="paper"){
+                return "you won";
+            } else {
+                return "you lost! hehehe!";
+            }
+
+        }
+
+        //assigning the first winner to a variable
+        let winner1=whoIsWinner(userchoice1, computerchoice1);
+        console.log(whoIsWinner(userchoice1, computerchoice1))
+        
+        //variables to save the points of computer and user 
+        let userAnswerPoints=0;
+        let computerAnswerPoints=0;
+        
+        //function who tells who is the winner based on answers
+        function calculate(whoIsWinner){
+            if (whoIsWinner==="you won"){
+                
+                ++userAnswerPoints;
+            
+                
+            }else if (whoIsWinner==="you lost! hehehe!"){
+                
+                ++computerAnswerPoints;
+                
+            }else{
+                return;
+            }
+            
+            return {userAnswerPoints, computerAnswerPoints};
+        }
+
+        let calculator=calculate(winner1, userAnswerPoints,computerAnswerPoints);
+
+        
+        console.log(calculator);
+        
+        //calling it second time
+        let userchoice2=userAnswer();
+        console.log(userAnswer());
+        let computerchoice2=computerAnswer();
+        console.log(computerAnswer());
+        let winner2=whoIsWinner(userAnswer, computerAnswer);
+        console.log(whoIsWinner(userchoice2,computerchoice2));
+        let calcultor2=calculate(winner2, userAnswerPoints, computerAnswerPoints);
+        console.log(calcultor2);
+        
+        //a function to announce winner at the end of second turn 
+
+        function final(){
+            if (userAnswerPoints>computerAnswerPoints){
+                return "you won congrat"
+            }else if (userAnswerPoints===computerAnswerPoints){
+                return "tieeee"
+            }else{
+                return "you lost sorry"
+            }
+        }
+
+        console.log(final());
+        
+
+    
+
+    </script>
+    
+</body>
+</html>
